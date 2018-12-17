@@ -73,18 +73,30 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if collectionView.tag == DISPLAY_CV {
+            if let img = (row as! ImageCollectionViewRow).images {
+                return img.count
+            } else {
+                return 0
+            }
+        } else {
+            return 5
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(collectionView.tag)
         if collectionView.tag == DISPLAY_CV {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "displayCell", for: indexPath) as! DisplayCell
-            cell.imageView.image = (row as! ImageCollectionViewRow).image
+            cell.imageView.image = (row as! ImageCollectionViewRow).images?[indexPath.row]
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickerCell", for: indexPath) as! PickerCell
-            cell.imageView.image = (row as! ImageCollectionViewRow).image
+            
+            if let count = (row as! ImageCollectionViewRow).images?.count {
+                if indexPath.row < count {
+                    cell.imageView.image = (row as! ImageCollectionViewRow).images?[indexPath.row]
+                }
+            }
             return cell
         }
     }
@@ -107,7 +119,7 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
 // The custom Row also has the cell: CustomCell and its correspond value
 public final class ImageCollectionViewRow: Row<ImageCollectionViewCell>, RowType {
 
-    public var image: UIImage?
+    public var images: [UIImage]? = []
 
     required public init(tag: String?) {
         super.init(tag: tag)

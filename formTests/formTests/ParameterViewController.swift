@@ -17,7 +17,9 @@ class ParameterViewController: FormViewController {
         self.tableView.backgroundColor = UIColor.white
         form +++ Section("Mes photos")
             <<< ImageCollectionViewRow() { row in
-                row.image = UIImage(named: "sophie")
+                row.images?.append(UIImage(named: "sophie")!)
+                row.images?.append(UIImage(named: "sophie")!)
+                row.images?.append(UIImage(named: "sophie")!)
             }
             +++ Section("Informations")
             <<< HoopLabelRow() { row in
