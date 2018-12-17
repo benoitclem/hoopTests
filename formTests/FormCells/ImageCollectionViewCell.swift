@@ -46,6 +46,7 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
 
     @IBOutlet weak var displayCollectionView: UICollectionView!
     @IBOutlet weak var pickerCollectionView: UICollectionView!
+    @IBOutlet weak var displayPageControl: UIPageControl!
     
     let DISPLAY_CV: Int = 1
     let PICKER_CV: Int = 2
@@ -53,6 +54,13 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
     public override func setup() {
         super.setup()
         
+        // set the page control
+        if let imgs = (row as! ImageCollectionViewRow).images {
+            displayPageControl.numberOfPages = imgs.count
+        } else {
+            displayPageControl.numberOfPages = 0
+        }
+
         // configure display part of cell
         displayCollectionView.register(DisplayCell.self, forCellWithReuseIdentifier: "displayCell")
         displayCollectionView.tag = DISPLAY_CV
@@ -64,6 +72,8 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
         pickerCollectionView.tag = PICKER_CV
         pickerCollectionView.dataSource = self
         pickerCollectionView.delegate = self
+        
+        
     }
 
     public override func update() {
@@ -114,6 +124,23 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
         return 0.0
     }
     
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == PICKER_CV {
+            if let count = (row as! ImageCollectionViewRow).images?.count {
+                if indexPath.row < count {
+                    self.displayCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+                    displayPageControl.currentPage = indexPath.row
+                }
+            }
+        }
+    }
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.tag == DISPLAY_CV {
+            let pageIndex = round((scrollView.contentOffset.x) / (scrollView.frame.size.width))
+            displayPageControl.currentPage = Int(pageIndex)
+        }
+    }
 }
 
 // The custom Row also has the cell: CustomCell and its correspond value

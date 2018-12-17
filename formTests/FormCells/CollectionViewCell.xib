@@ -42,13 +42,18 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-f7-td6">
+                    <rect key="frame" x="168" y="298" width="39" height="37"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="0.1215686275" green="0.36470588240000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="qfn-A2-MRf" firstAttribute="top" secondItem="I8v-f7-td6" secondAttribute="bottom" constant="8" id="5nR-Cg-hFY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wxQ-a6-EB3" secondAttribute="trailing" id="60O-Qd-kJ9"/>
                 <constraint firstItem="qfn-A2-MRf" firstAttribute="top" secondItem="wxQ-a6-EB3" secondAttribute="bottom" constant="2" id="Ip8-hd-m7y"/>
                 <constraint firstItem="qfn-A2-MRf" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="RHP-m2-fVh"/>
                 <constraint firstItem="wxQ-a6-EB3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g2D-Fj-AqD"/>
+                <constraint firstItem="I8v-f7-td6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="njU-P3-7CJ"/>
                 <constraint firstItem="qfn-A2-MRf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pxW-bF-Waw"/>
                 <constraint firstItem="qfn-A2-MRf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rmP-2T-LFn"/>
                 <constraint firstItem="wxQ-a6-EB3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vza-S0-MBQ"/>
@@ -57,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="displayCollectionView" destination="wxQ-a6-EB3" id="Eiy-jo-QN9"/>
+                <outlet property="displayPageControl" destination="I8v-f7-td6" id="SD4-Rm-5Ka"/>
                 <outlet property="pickerCollectionView" destination="qfn-A2-MRf" id="w3z-Sc-vU9"/>
             </connections>
             <point key="canvasLocation" x="180" y="64.31784107946028"/>
