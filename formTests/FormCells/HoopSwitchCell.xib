@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HoopSwitchCell" customModule="formTests" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUX-SY-ayM">
+                    <rect key="frame" x="308" y="22.5" width="51" height="31"/>
+                    <color key="onTintColor" red="0.81568627449999997" green="0.4039215686" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQt-ip-ljP">
+                    <rect key="frame" x="18" y="27.5" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kQt-ip-ljP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="VAA-Dv-0KF"/>
+                <constraint firstItem="kQt-ip-ljP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="afP-Xt-FMP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tUX-SY-ayM" secondAttribute="trailing" constant="18" id="fK6-ss-I8h"/>
+                <constraint firstItem="tUX-SY-ayM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ziU-gx-EX1"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="rowLabel" destination="kQt-ip-ljP" id="G9Y-kw-NBa"/>
+                <outlet property="switchControl" destination="tUX-SY-ayM" id="bcY-Aq-Q2w"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="-112.44377811094454"/>
+        </view>
+    </objects>
+</document>
