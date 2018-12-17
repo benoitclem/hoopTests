@@ -27,6 +27,7 @@
 		EB28B64F21C7C7A900CFF1EF /* HoopTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B64E21C7C7A900CFF1EF /* HoopTextViewCell.swift */; };
 		EB28B65021C7CC4F00CFF1EF /* RSKPlaceholderTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB28B64C21C7C75F00CFF1EF /* RSKPlaceholderTextView.framework */; };
 		EB28B65121C7CC4F00CFF1EF /* RSKPlaceholderTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB28B64C21C7C75F00CFF1EF /* RSKPlaceholderTextView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB28B65321C7F95400CFF1EF /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB28B65221C7F95400CFF1EF /* PickerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		EB28B64A21C7C43F00CFF1EF /* HoopTextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoopTextViewCell.xib; sourceTree = "<group>"; };
 		EB28B64C21C7C75F00CFF1EF /* RSKPlaceholderTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKPlaceholderTextView.framework; path = formTests/Frameworks/RSKPlaceholderTextView.framework; sourceTree = SOURCE_ROOT; };
 		EB28B64E21C7C7A900CFF1EF /* HoopTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopTextViewCell.swift; sourceTree = "<group>"; };
+		EB28B65221C7F95400CFF1EF /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		EB28B59921C23D8500CFF1EF /* FormCells */ = {
 			isa = PBXGroup;
 			children = (
+				EB28B65221C7F95400CFF1EF /* PickerCell.xib */,
 				EB28B5A121C27CC100CFF1EF /* CollectionViewCell.xib */,
 				EB28B59A21C23DC200CFF1EF /* ImageCollectionViewCell.swift */,
 				EB28B63B21C402FA00CFF1EF /* HoopSwitchCell.xib */,
@@ -210,6 +213,7 @@
 				EB28B64021C79EA800CFF1EF /* HoopLabelCell.xib in Resources */,
 				EB28B64B21C7C43F00CFF1EF /* HoopTextViewCell.xib in Resources */,
 				EB28B58921C2331700CFF1EF /* Assets.xcassets in Resources */,
+				EB28B65321C7F95400CFF1EF /* PickerCell.xib in Resources */,
 				EB28B58721C2331600CFF1EF /* Main.storyboard in Resources */,
 				EB28B64621C7AA2A00CFF1EF /* HoopRangeCell.xib in Resources */,
 				EB28B63C21C402FA00CFF1EF /* HoopSwitchCell.xib in Resources */,

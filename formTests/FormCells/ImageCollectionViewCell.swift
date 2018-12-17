@@ -9,7 +9,14 @@
 import Foundation
 import Eureka
 
-class ImageCell: UICollectionViewCell {
+// Coded in nib
+class PickerCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var actionButton: UIButton!
+}
+
+// Coded here
+class DisplayCell: UICollectionViewCell {
     
     var imageView: UIImageView!
     
@@ -37,21 +44,27 @@ class ImageCell: UICollectionViewCell {
 
 public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var displayCollectionView: UICollectionView!
+    @IBOutlet weak var pickerCollectionView: UICollectionView!
+    
+    let DISPLAY_CV: Int = 1
+    let PICKER_CV: Int = 2
     
     public override func setup() {
         super.setup()
-        // configure CollectionView
-        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        // switchControl.addTarget(self, action: #selector(CustomCell.switchValueChanged), for: .valueChanged)
+        
+        // configure display part of cell
+        displayCollectionView.register(DisplayCell.self, forCellWithReuseIdentifier: "displayCell")
+        displayCollectionView.tag = DISPLAY_CV
+        displayCollectionView.dataSource = self
+        displayCollectionView.delegate = self
+        
+        // configure picker part of cell
+        pickerCollectionView.register(UINib(nibName: "PickerCell", bundle: nil), forCellWithReuseIdentifier: "pickerCell")
+        pickerCollectionView.tag = PICKER_CV
+        pickerCollectionView.dataSource = self
+        pickerCollectionView.delegate = self
     }
-
-//    @objc func switchValueChanged(){
-//        row.value = switchControl.isOn
-//        row.updateCell() // Re-draws the cell which calls 'update' bellow
-//    }
 
     public override func update() {
         super.update()
@@ -60,17 +73,29 @@ public class ImageCollectionViewCell: Cell<Bool>, CellType, UICollectionViewData
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.imageView.image = (row as! ImageCollectionViewRow).image
-        return cell
+        print(collectionView.tag)
+        if collectionView.tag == DISPLAY_CV {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "displayCell", for: indexPath) as! DisplayCell
+            cell.imageView.image = (row as! ImageCollectionViewRow).image
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickerCell", for: indexPath) as! PickerCell
+            cell.imageView.image = (row as! ImageCollectionViewRow).image
+            return cell
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.frame.size
+        if collectionView.tag == DISPLAY_CV {
+            return collectionView.frame.size
+        } else {
+            let width = collectionView.frame.size.width/5.0
+            return CGSize(width: width, height: width)
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

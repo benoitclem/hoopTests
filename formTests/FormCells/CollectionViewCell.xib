@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageCollectionViewCell" customModule="formTests" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="341"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageCollectionViewCell" customModule="formTests">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="443"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wxQ-a6-EB3">
@@ -29,20 +29,37 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qfn-A2-MRf">
+                    <rect key="frame" x="0.0" y="343" width="375" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="RjK-Vm-7B0"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cf0-2m-W5U">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.95686274510000002" green="0.3803921569" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" red="0.1215686275" green="0.36470588240000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wxQ-a6-EB3" secondAttribute="trailing" id="60O-Qd-kJ9"/>
-                <constraint firstItem="wxQ-a6-EB3" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="UrA-Lf-rzX"/>
+                <constraint firstItem="qfn-A2-MRf" firstAttribute="top" secondItem="wxQ-a6-EB3" secondAttribute="bottom" constant="2" id="Ip8-hd-m7y"/>
+                <constraint firstItem="qfn-A2-MRf" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="RHP-m2-fVh"/>
                 <constraint firstItem="wxQ-a6-EB3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g2D-Fj-AqD"/>
+                <constraint firstItem="qfn-A2-MRf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pxW-bF-Waw"/>
+                <constraint firstItem="qfn-A2-MRf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rmP-2T-LFn"/>
                 <constraint firstItem="wxQ-a6-EB3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vza-S0-MBQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="collectionView" destination="wxQ-a6-EB3" id="jZ5-So-RMB"/>
+                <outlet property="displayCollectionView" destination="wxQ-a6-EB3" id="Eiy-jo-QN9"/>
+                <outlet property="pickerCollectionView" destination="qfn-A2-MRf" id="w3z-Sc-vU9"/>
             </connections>
-            <point key="canvasLocation" x="180" y="18.440779610194905"/>
+            <point key="canvasLocation" x="180" y="64.31784107946028"/>
         </view>
     </objects>
 </document>
