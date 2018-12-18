@@ -31,7 +31,7 @@ class ParameterViewController: FormViewController {
                 var style = HoopLabelRowStyle()
                 style.bgColor = UIColor.green
                 style.txtColor = UIColor.white
-                row.title = "31"
+                row.labelText = "31"
                 row.value = "salut"
                 row.labelStyle = style
             }
@@ -48,12 +48,12 @@ class ParameterViewController: FormViewController {
             }
             <<< HoopSwitchRow() { row in
                 row.tag = "switchFemme"
-                row.title = "Femme"
+                row.labelText = "Femme"
                 row.value = true
             }
             <<< HoopRangeRow() { row in
                 row.tag = "ageRange"
-                row.title = "Tranche d'age"
+                row.labelText = "Tranche d'age"
                 row.value = Range(min: 18,low: 18,upp: 55,max: 55)
             }
             <<< PhoneRow(){
@@ -65,8 +65,13 @@ class ParameterViewController: FormViewController {
                 $0.title = "Date Row"
                 $0.value = Date(timeIntervalSinceReferenceDate: 0)
             }
-            <<< ButtonRow() {
-                $0.title = "action"
+            <<< HoopLabelRow() { row in
+                var style = HoopLabelRowStyle()
+                style.bgColor = UIColor.green
+                style.txtColor = UIColor.white
+                style.txtAlignement = NSTextAlignment.center
+                row.labelText = "salut"
+                row.labelStyle = style
             }.onCellSelection { cell, row in
                 //row.title = "action 1"
                 print(self.form.values())

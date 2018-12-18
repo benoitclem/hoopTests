@@ -23,7 +23,7 @@ public class HoopSwitchCell: Cell<Bool>, CellType {
     public override func update() {
         super.update()
         // Do some custom here
-        rowLabel.text = (row as! HoopSwitchRow).title
+        rowLabel.text = (row as! HoopSwitchRow).labelText
         switchControl.isOn = (row as! HoopSwitchRow).value ?? true
     }
     
@@ -33,6 +33,8 @@ public class HoopSwitchCell: Cell<Bool>, CellType {
 }
 
 public final class HoopSwitchRow: Row<HoopSwitchCell>, RowType {
+    
+    public var labelText: String?
     
     required public init(tag: String?) {
         super.init(tag: tag)

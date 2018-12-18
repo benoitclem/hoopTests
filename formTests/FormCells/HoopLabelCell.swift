@@ -15,17 +15,15 @@ public class HoopLabelCell: Cell<String>, CellType {
     @IBOutlet weak var rowValue: UILabel!
     @IBOutlet weak var rowIndicator: UIImageView!
     
-    
     public override func setup() {
         super.setup()
-        
         // switchControl.addTarget(self, action: #selector(CustomCell.switchValueChanged), for: .valueChanged)
     }
     
     public override func update() {
         super.update()
         // Do some custom here
-        rowTitle.text = (row as! HoopLabelRow).title
+        rowTitle.text = (row as! HoopLabelRow).labelText
         if let image = (row as! HoopLabelRow).indicator {
             rowValue.isHidden = false
             rowIndicator.image = image
@@ -55,6 +53,8 @@ public struct HoopLabelRowStyle {
 
 public final class HoopLabelRow: Row<HoopLabelCell>, RowType {
     
+    // Here don't use default title because it causes duplicate
+    public var labelText: String?
     public var labelStyle: HoopLabelRowStyle?
     public var indicator: UIImage?
     

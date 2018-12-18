@@ -40,7 +40,7 @@ public class HoopRangeCell: Cell<Range>, CellType {
     public override func update() {
         super.update()
         // Do some custom here
-        rowTitle.text = (row as! HoopRangeRow).title
+        rowTitle.text = (row as! HoopRangeRow).labelText
         if let range = (row as! HoopRangeRow).value {
             rowSlider.minimumValue = range.min
             rowSlider.lowerValue = range.low
@@ -51,7 +51,6 @@ public class HoopRangeCell: Cell<Range>, CellType {
     }
     
     @objc func rangeSliderValueChanged(_  control: RangeSlider) {
-        print("value changed")
         (row as! HoopRangeRow).value = Range(min: control.minimumValue, low: control.lowerValue, upp: control.upperValue, max: control.maximumValue)
         update()
     }
@@ -70,6 +69,9 @@ public class HoopRangeCell: Cell<Range>, CellType {
 }
 
 public final class HoopRangeRow: Row<HoopRangeCell>, RowType {
+    
+    public var labelText: String?
+    
     required public init(tag: String?) {
         super.init(tag: tag)
         // We set the cellProvider to load the .xib corresponding to our cell
