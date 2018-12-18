@@ -14,6 +14,10 @@ public struct Range: Equatable {
     var low: Double
     var upp: Double
     var max: Double
+    
+    var description: String {
+        return "Range [\(min) \(low) \(upp) \(max)]"
+    }
 }
 
 public func ==(lhs: Range, rhs: Range) -> Bool {
@@ -37,7 +41,7 @@ public class HoopRangeCell: Cell<Range>, CellType {
         super.update()
         // Do some custom here
         rowTitle.text = (row as! HoopRangeRow).title
-        if let range = (row as! HoopRangeRow).range {
+        if let range = (row as! HoopRangeRow).value {
             rowSlider.minimumValue = range.min
             rowSlider.lowerValue = range.low
             rowSlider.upperValue = range.upp
@@ -48,7 +52,7 @@ public class HoopRangeCell: Cell<Range>, CellType {
     
     @objc func rangeSliderValueChanged(_  control: RangeSlider) {
         print("value changed")
-        (row as! HoopRangeRow).range = Range(min: control.minimumValue, low: control.lowerValue, upp: control.upperValue, max: control.maximumValue)
+        (row as! HoopRangeRow).value = Range(min: control.minimumValue, low: control.lowerValue, upp: control.upperValue, max: control.maximumValue)
         update()
     }
     
@@ -66,9 +70,6 @@ public class HoopRangeCell: Cell<Range>, CellType {
 }
 
 public final class HoopRangeRow: Row<HoopRangeCell>, RowType {
-    
-    public var range: Range?
-    
     required public init(tag: String?) {
         super.init(tag: tag)
         // We set the cellProvider to load the .xib corresponding to our cell

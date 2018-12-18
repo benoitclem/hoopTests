@@ -12,42 +12,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PickerCell" customModule="formTests">
-            <rect key="frame" x="0.0" y="0.0" width="114" height="108"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uR6-ex-58V">
-                    <rect key="frame" x="8" y="8" width="98" height="92"/>
-                    <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leX-i4-zIH">
-                    <rect key="frame" x="84" y="78" width="30" height="30"/>
-                    <color key="backgroundColor" red="0.70196078429999997" green="0.1176470588" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="LhW-4p-rho"/>
-                        <constraint firstAttribute="height" constant="30" id="caQ-du-IBX"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                </button>
-            </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hL2-Gx-BMF" customClass="PickerCell" customModule="formTests" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uR6-ex-58V">
+                        <rect key="frame" x="8" y="8" width="140" height="112"/>
+                        <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leX-i4-zIH">
+                        <rect key="frame" x="126" y="98" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.70196078429999997" green="0.1176470588" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="LhW-4p-rho"/>
+                            <constraint firstAttribute="height" constant="30" id="caQ-du-IBX"/>
+                        </constraints>
+                        <state key="normal" title="x"/>
+                    </button>
+                </subviews>
+            </view>
             <constraints>
-                <constraint firstItem="uR6-ex-58V" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="01Y-f8-BNs"/>
-                <constraint firstItem="leX-i4-zIH" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="5BO-Vh-Jav"/>
-                <constraint firstItem="leX-i4-zIH" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JIm-As-Wye"/>
-                <constraint firstItem="uR6-ex-58V" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="TVd-Hx-cb1"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uR6-ex-58V" secondAttribute="trailing" constant="8" id="b7y-dV-26V"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uR6-ex-58V" secondAttribute="bottom" constant="8" id="o5T-OL-3tb"/>
+                <constraint firstAttribute="bottom" secondItem="leX-i4-zIH" secondAttribute="bottom" id="AvW-ON-0BX"/>
+                <constraint firstAttribute="bottom" secondItem="uR6-ex-58V" secondAttribute="bottom" constant="8" id="Dk5-45-0lR"/>
+                <constraint firstItem="uR6-ex-58V" firstAttribute="leading" secondItem="hL2-Gx-BMF" secondAttribute="leading" constant="8" id="H2L-t2-56b"/>
+                <constraint firstAttribute="trailing" secondItem="uR6-ex-58V" secondAttribute="trailing" constant="8" id="JuW-l8-XJC"/>
+                <constraint firstItem="uR6-ex-58V" firstAttribute="top" secondItem="hL2-Gx-BMF" secondAttribute="top" constant="8" id="gUZ-PG-yPf"/>
+                <constraint firstAttribute="trailing" secondItem="leX-i4-zIH" secondAttribute="trailing" id="pQE-Wt-PSD"/>
             </constraints>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <viewLayoutGuide key="safeArea" id="wyV-Hi-BL8"/>
+            <size key="customSize" width="156" height="128"/>
             <connections>
-                <outlet property="actionButton" destination="leX-i4-zIH" id="yrL-hd-1sO"/>
-                <outlet property="imageView" destination="uR6-ex-58V" id="wqe-oj-geK"/>
+                <outlet property="actionButton" destination="leX-i4-zIH" id="8dY-u1-05X"/>
+                <outlet property="imageView" destination="uR6-ex-58V" id="ANq-I5-gg3"/>
             </connections>
-            <point key="canvasLocation" x="-70.400000000000006" y="-98.050974512743636"/>
-        </view>
+            <point key="canvasLocation" x="-112" y="-242.87856071964021"/>
+        </collectionViewCell>
     </objects>
 </document>

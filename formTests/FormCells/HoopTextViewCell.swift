@@ -26,7 +26,6 @@ public class HoopTextViewCell: Cell<String>, CellType, UITextViewDelegate {
     }
     
     public func textViewDidChange(_ textView: UITextView) {
-        print("valueChanged")
         if let tableView = formViewController()?.tableView {
             let currentOffset = tableView.contentOffset
             UIView.setAnimationsEnabled(false)
@@ -35,6 +34,7 @@ public class HoopTextViewCell: Cell<String>, CellType, UITextViewDelegate {
             UIView.setAnimationsEnabled(true)
             tableView.setContentOffset(currentOffset, animated: false)
         }
+        (row as! HoopTextViewRow).value = textView.text
     }
 }
 

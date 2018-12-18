@@ -17,9 +17,11 @@ class ParameterViewController: FormViewController {
         self.tableView.backgroundColor = UIColor.white
         form +++ Section("Mes photos")
             <<< ImageCollectionViewRow() { row in
-                row.images?.append(UIImage(named: "sophie")!)
-                row.images?.append(UIImage(named: "sophie")!)
-                row.images?.append(UIImage(named: "sophie")!)
+                row.tag = "images"
+                row.value = [UIImage]()
+                row.value?.append(UIImage(named: "sophie")!)
+                row.value?.append(UIImage(named: "sophie")!)
+                row.value?.append(UIImage(named: "sophie")!)
             }
             +++ Section("Informations")
             <<< HoopLabelRow() { row in
@@ -35,22 +37,24 @@ class ParameterViewController: FormViewController {
             }
             +++ Section("À propos de moi")
             <<< HoopTextViewRow() { row in
+                row.tag = "description"
+                row.value = ""
                 row.placeholder = "write something here"
             }
             +++ Section("Je souhaite rencontrer")
             <<< SwitchRow() { row in
-                row.tag = "swh"
+                row.tag = "switchHomme"
                 row.title = "Homme"
             }
             <<< HoopSwitchRow() { row in
-                row.tag = "swf"
+                row.tag = "switchFemme"
                 row.title = "Femme"
-                row.state = true
+                row.value = true
             }
             <<< HoopRangeRow() { row in
+                row.tag = "ageRange"
                 row.title = "Tranche d'age"
-                let r = Range(min: 18,low: 18,upp: 55,max: 55)
-                row.range = r
+                row.value = Range(min: 18,low: 18,upp: 55,max: 55)
             }
             <<< PhoneRow(){
                 $0.title = "Phone Row"

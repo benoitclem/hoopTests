@@ -17,20 +17,22 @@ public class HoopSwitchCell: Cell<Bool>, CellType {
     public override func setup() {
         super.setup()
         
-        // switchControl.addTarget(self, action: #selector(CustomCell.switchValueChanged), for: .valueChanged)
+        switchControl.addTarget(self, action: #selector(HoopSwitchCell.switchValueChanged), for: .valueChanged)
     }
     
     public override func update() {
         super.update()
         // Do some custom here
         rowLabel.text = (row as! HoopSwitchRow).title
-        switchControl.isOn = (row as! HoopSwitchRow).state ?? true
+        switchControl.isOn = (row as! HoopSwitchRow).value ?? true
+    }
+    
+    @objc public func switchValueChanged(_ control: UISwitch) {
+        (row as! HoopSwitchRow).value = control.isOn
     }
 }
 
 public final class HoopSwitchRow: Row<HoopSwitchCell>, RowType {
-    
-    public var state: Bool?
     
     required public init(tag: String?) {
         super.init(tag: tag)
