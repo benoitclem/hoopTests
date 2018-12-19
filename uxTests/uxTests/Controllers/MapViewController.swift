@@ -26,22 +26,24 @@ class MapViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toProfile" {
-            let profileView = segue.destination as! ProfileViewController
-            profileView.imageheroId = selectedProfile
-        }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toProfile" {
+//            let profileView = segue.destination as! ProfileViewController
+//            profileView.imageheroId = selectedProfile
+//        }
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
 
 }
 
 extension MapViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedProfile = profilePictures[indexPath.row]
-        performSegue(withIdentifier: "toProfile", sender: nil)
+        if let vc = try? Router.shared.matchControllerFromStoryboard("/profile/1?imageheroId=\(selectedProfile!)",storyboardName: "Main") {
+            self.present(vc as! UIViewController, animated: true)
+        }
+        //performSegue(withIdentifier: "toProfile", sender: nil)
     }
 }
 

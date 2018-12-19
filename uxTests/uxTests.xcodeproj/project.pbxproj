@@ -16,6 +16,7 @@
 		EB28B56D21C121BC00CFF1EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B56C21C121BC00CFF1EF /* ProfileViewController.swift */; };
 		EB28B56F21C1269D00CFF1EF /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB28B56721C1207B00CFF1EF /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB28B57421C14A2A00CFF1EF /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B57321C14A2A00CFF1EF /* UIGradientView.swift */; };
+		EB8F045E21CAB5AF003757EC /* SwiftRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F045D21CAB5AF003757EC /* SwiftRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		EB28B56A21C1216A00CFF1EF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controllers/MapViewController.swift; sourceTree = "<group>"; };
 		EB28B56C21C121BC00CFF1EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		EB28B57321C14A2A00CFF1EF /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIGradientView.swift; path = Utils/UIGradientView.swift; sourceTree = "<group>"; };
+		EB8F045D21CAB5AF003757EC /* SwiftRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftRouter.swift; path = Routing/SwiftRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		EB28B55121C1087E00CFF1EF /* uxTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB8F045A21CA5819003757EC /* Routing */,
 				EB28B56921C1213E00CFF1EF /* Controllers */,
 				EB28B56621C1204200CFF1EF /* Frameworks */,
 				EB28B55221C1087E00CFF1EF /* AppDelegate.swift */,
@@ -103,6 +106,14 @@
 				EB28B56C21C121BC00CFF1EF /* ProfileViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EB8F045A21CA5819003757EC /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				EB8F045D21CAB5AF003757EC /* SwiftRouter.swift */,
+			);
+			name = Routing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8F045E21CAB5AF003757EC /* SwiftRouter.swift in Sources */,
 				EB28B56D21C121BC00CFF1EF /* ProfileViewController.swift in Sources */,
 				EB28B56B21C1216A00CFF1EF /* MapViewController.swift in Sources */,
 				EB28B57421C14A2A00CFF1EF /* UIGradientView.swift in Sources */,

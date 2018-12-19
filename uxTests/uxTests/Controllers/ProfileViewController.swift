@@ -19,16 +19,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var cartoucheView: UIView!
     
-    var imageheroId: String?
+    @objc var profileId: String?
+    @objc var imageheroId: String?
+    
+    var panGR: UIPanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let hid = imageheroId {
             cartoucheView.hero.id = hid+"cartouche"
         }
         profileName.text = "Seraphine 27"
         profilepicturePager.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        // Do any additional setup after loading the view.
+        
+        panGR = UIPanGestureRecognizer(target: self,
+                                       action: #selector(handlePan(gestureRecognizer:)))
+        view.addGestureRecognizer(panGR)
     }
     
     @IBAction func dismissView(_ sender: Any) {
@@ -46,6 +53,19 @@ class ProfileViewController: UIViewController {
     */
 
 }
+
+extension ProfileViewController {
+    @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
+        switch panGR.state {
+        case .began:
+            // begin the transition as normal
+            dismiss(animated: true, completion: nil)
+        default:
+            break
+        }
+    }
+}
+
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
